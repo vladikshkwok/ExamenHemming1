@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
 using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Zolotarev
@@ -17,15 +9,11 @@ namespace Zolotarev
         public Form1()
         {
             InitializeComponent();
-            if (!GetMACAddress().Equals("00FFB736C5F7"))
-            {
-                ButtonInsertn.Enabled = false;
-            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,18 +31,13 @@ namespace Zolotarev
 
         }
         String m, k, n;
-        int[] nwe = new int [9];
-        int[] nwed = new int [9];
+        int[] nwe = new int[9];
+        int[] nwed = new int[9];
         int p1, p2, p3, p4;
         int razryad;
 
         private void ButtonInsertn_Click(object sender, EventArgs e)
         {
-
-            
-                
-
-
             n = nTextBox.Text;
             labelforn1.Text = n[8].ToString();
             labelforn2.Text = n[7].ToString();
@@ -139,8 +122,8 @@ namespace Zolotarev
         {
             for (int z = 0; z < 9; z++)
                 nwe[z] = int.Parse(n[z].ToString());
-            
-                
+
+
             if (i == 1)
             {
                 Error1.Text = "Ошибка";
@@ -199,38 +182,38 @@ namespace Zolotarev
         private void setErrorCol2(int i)
         {
             bool far = true;
-            for(int b = 0; b < 9; b++)
+            for (int b = 0; b < 9; b++)
                 nwed[b] = int.Parse(n[b].ToString());
 
             for (int z = 0; z < 9; z++)
             {
-          
+
                 if (z > 0)
                 {
-                    if (z == (9-i))
+                    if (z == (9 - i))
                     {
                         if (nwed[z - 1] == 0)
                             nwed[z - 1] = 1;
                         else nwed[z - 1] = 0;
-                        
+
                     }
                 }
                 else
                 {
-                    if (z == (9-i))
+                    if (z == (9 - i))
                     {
-                        if (nwed[z+1] == 0)
-                            nwed[z+1] = 1;
-                        else nwed[z+1] = 1;
+                        if (nwed[z + 1] == 0)
+                            nwed[z + 1] = 1;
+                        else nwed[z + 1] = 1;
                         far = false;
                     }
                 }
             }
-            
+
             if (i == 9)
             {
                 labelerfor1.Text = "Ошибка";
-                if(!far) labelerfor2.Text = "Ошибка";
+                if (!far) labelerfor2.Text = "Ошибка";
             }
             if (i == 8)
             {
@@ -282,7 +265,7 @@ namespace Zolotarev
         }
         private void toDec(int p1, int p2, int p3, int p4)
         {
-            razryad = p1 * 1 + p2 * 2 + p3 * 4 + p4 * 8 ;
+            razryad = p1 * 1 + p2 * 2 + p3 * 4 + p4 * 8;
         }
         public string GetMACAddress()
         {
